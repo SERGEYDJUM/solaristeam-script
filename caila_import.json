@@ -1,7 +1,7 @@
 {
   "project" : {
-    "id" : "demo_app-384-BXJ",
-    "name" : "demo_app-384-BXJ",
+    "id" : "solaristeam_script-1089854-Hyc",
+    "name" : "solaristeam_script-1089854-Hyc",
     "folder" : "/jaicp"
   },
   "settings" : {
@@ -9,7 +9,8 @@
     "spellingCorrection" : false,
     "classificationAlgorithm" : "sts",
     "timezone" : "UTC",
-    "shared" : false
+    "businessShared" : false,
+    "business" : false
   },
   "intents" : [ ],
   "entities" : [ ],

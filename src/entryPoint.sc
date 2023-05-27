@@ -22,7 +22,8 @@ theme: /
 
         state:
             intent: /Move
-            a: Ваш ход {{$parseTree._Row}} {{$parseTree._Column}}
+            script:
+                playerMove($parseTree._Row, $parseTree._Column, $context);
 
     state: Fallback
         event!: noMatch

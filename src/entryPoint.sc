@@ -23,8 +23,8 @@ theme: /
         state:
             intent: /Move
             script:
-                $context._GameState = "win"
-            if $context._GameState = "win"
+                $session.LastGameState = "win"
+            if $session.LastGameState == "win"
                 a: Молодец!
             else
                 a: Плохо!

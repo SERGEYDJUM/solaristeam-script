@@ -12,7 +12,34 @@
     "businessShared" : false,
     "business" : false
   },
-  "intents" : [ ],
+  "intents" : [ {
+    "id" : 592366,
+    "path" : "/Move",
+    "enabled" : true,
+    "businessShared" : false,
+    "business" : false,
+    "phrases" : [ {
+      "text" : "Я хожу на"
+    }, {
+      "text" : "Мой ход 4 7"
+    }, {
+      "text" : "По горизонтали 12, по вертикали 1"
+    }, {
+      "text" : "Хожу на 6 9"
+    } ],
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "Row",
+      "entity" : "duckling.number",
+      "required" : true,
+      "prompts" : [ "По вертикали?", "Ряд?" ]
+    }, {
+      "name" : "Column",
+      "entity" : "duckling.number",
+      "required" : true,
+      "prompts" : [ "По горизонтали?", "Столбец?" ]
+    } ]
+  } ],
   "entities" : [ ],
   "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ]
 }

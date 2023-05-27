@@ -22,8 +22,13 @@ theme: /
 
         state:
             intent: /Move
-            a: Молодец!
-            
+            script:
+                $context._GameState = "win"
+            if $context._GameState = "win"
+                a: Молодец!
+            else
+                a: Плохо!
+
     state: Fallback
         event!: noMatch
         a: Я не понимаю

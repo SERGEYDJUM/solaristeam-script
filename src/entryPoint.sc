@@ -1,6 +1,6 @@
 require: slotfilling/slotFilling.sc
-  module = sys.zb-common
-  
+    module = sys.zb-common
+
 # Подключение javascript обработчиков
 require: js/getters.js
 require: js/reply.js
@@ -19,6 +19,10 @@ theme: /
         
     state: ResetGame
         a: Поле готово. Предлагаю вам сделать первый ход
+
+        state:
+            intent: /Move
+            a: Ваш ход {{$parseTree._Row}} {{$parseTree._Column}}
 
     state: Fallback
         event!: noMatch

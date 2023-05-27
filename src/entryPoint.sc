@@ -22,9 +22,7 @@ theme: /
 
         state:
             intent: /Move
-            script:
-                var gstate = "win"
-            a: {{$gstate}}
+            a: Молодец!
             
     state: Fallback
         event!: noMatch

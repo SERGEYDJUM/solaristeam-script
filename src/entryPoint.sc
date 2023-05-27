@@ -15,15 +15,19 @@ theme: /
         q!: $regex</start>
         # При запуске приложения с голоса прилетит сказанная фраза.
         q!: (запусти | открой | вруби) Гомоку
+        q!: Давай заново
         go!: /ResetGame
         
     state: ResetGame
         a: Поле готово. Предлагаю вам сделать первый ход
-
+        script:
+            resetGame($context)
+            
         state:
             intent: /Move
             script:
-                $session.LastGameState = "win";
+                playerMove($parseTree._Row, $parseTree._Column, $context);
+                $session.LastGameState = get_game_state(get_request($context));
             if: $session.LastGameState == "win"
                 a: Молодец!
             else:

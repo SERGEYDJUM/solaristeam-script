@@ -23,9 +23,9 @@ theme: /
         state:
             intent: /Move
             script:
-                var gstate = "win";
+                var gstate = "win"
             if $gstate == "win"
-                a: Поздравляю, вы победили!
+                a: Поздравляю, вы победили
             else
                 a: Непонятно
             

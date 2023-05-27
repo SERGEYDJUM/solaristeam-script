@@ -1,20 +1,10 @@
-function addNote(note, context) {
+function playerMove(row, column, context) {
     addAction({
-        type: "add_note",
-        note: note
+        type: "player_move",
+        move: {x: column, y: row}
     }, context);
 }
 
-function doneNote(id, context){
-    addAction({
-        type: "done_note",
-        id: id
-    }, context);
-}
-
-function deleteNote(id, context){
-    addAction({
-        type: "delete_note",
-        id: id
-    }, context);
+function resetGame(context) {
+    addAction({type: "reset_game"}, context);
 }

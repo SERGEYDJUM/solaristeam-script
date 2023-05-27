@@ -24,10 +24,6 @@ theme: /
             intent: /Move
             script:
                 $session.LastGameState = "win";
-            if $session.LastGameState == "win"
-                a: Молодец!
-            else
-                a: Плохо!
 
     state: Fallback
         event!: noMatch

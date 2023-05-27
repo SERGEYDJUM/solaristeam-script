@@ -23,8 +23,6 @@ theme: /
         state:
             intent: /Move
             script:
-                playerMove($parseTree._Row, $parseTree._Column, $context);
-                var gstate = get_game_state(get_request($context));
                 var gstate = "win";
             if $gstate == "win"
                 a: Поздравляю, вы победили!

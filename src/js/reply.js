@@ -54,3 +54,18 @@ function addSuggestions(suggestions, context) {
 
     reply({"suggestions": {"buttons": buttons}}, context.response);
 }
+
+function playEmotion(emotionId) {
+    if (emotionId != null) {
+        $jsapi.context().response.replies = $jsapi.context().response.replies || [];
+        $jsapi.context().response.replies.push({
+            "type": "raw",
+            "body": {
+                "emotion": {
+                    "emotionId": emotionId
+                }
+            },
+            "messageName": "ANSWER_TO_USER"
+        });
+    }
+}

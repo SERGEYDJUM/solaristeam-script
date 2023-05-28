@@ -23,7 +23,7 @@ theme: /
         q!: Давай заново
         script:
             resetGame($context);
-            if ($context.request.rawRequest.payload.character) {
+            if ($context.request) {
                 $session.chara = $context.request.rawRequest.payload.character.name;
             } else {
                 $session.chara = "Сбер";

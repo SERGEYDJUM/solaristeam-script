@@ -68,4 +68,4 @@ theme: /
             
     state: Help
         q!: * (помоги | помощь | а как | правила) *
-        a: {{$global.answers.help[$session.character]}}
+        a: {{$global.answers.help}}

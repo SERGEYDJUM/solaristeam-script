@@ -22,8 +22,9 @@ theme: /
     state: ResetGame
         q!: Давай заново
         script:
+            $session.chara = $context.request.rawRequest.payload.character.name;
             resetGame($context);
-        a: Предлагаю вам сделать первый ход
+        a: Я {{$session.chara}}. Предлагаю вам сделать первый ход
 
         state: Moving
             intent!: /Move

@@ -38,10 +38,10 @@ theme: /
                 a: {{$global.answers.invalid_move[$session.character]}}
             elseif: $session.gstate.game_status == 2
                 a: {{$global.answers.player_won[$session.character]}}
-                go: /PollBegin
+                go!: /PollBegin
             elseif: $session.gstate.game_status == 3
                 a: {{$global.answers.player_lost[$session.character]}}
-                go: /PollBegin
+                go!: /PollBegin
             else:
                 a: А что, так можно было?
 
@@ -52,6 +52,7 @@ theme: /
                 addSuggestions(["Помощь"], $context)
             
     state: PollBegin
+        a: {{$global.answers.poll_rematch[$session.character]}}
         state: Affirmative
             q: (давай | да)
             go!: /ResetGame

@@ -24,7 +24,7 @@ theme: /
         script: 
             resetGame($context);
             $session.character = get_character($context);
-        a: Я {{$global.answers.board_ready[$session.character]}}
+        a: {{$global.answers.board_ready[$session.character]}}
 
         state: Moving
             intent!: /Move

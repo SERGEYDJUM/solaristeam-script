@@ -36,6 +36,18 @@ if (request &&
     return null;
 }
 
+function getCharacterName($request) {
+    try {
+        // Possible names: Сбер, Афина, Джой
+        return $request.rawRequest.payload.character.name;
+    } catch (e) {
+        if ($request.channelType === "chatwidget") {
+            return "Сбер";
+        }
+        throw e.message;
+    }
+}
+
 function game_state(context) {
     return get_game_state(get_request(context))
 }

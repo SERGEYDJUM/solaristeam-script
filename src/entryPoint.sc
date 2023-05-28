@@ -12,6 +12,9 @@ require: js/actions.js
 patterns:
     $AnyText = $nonEmptyGarbage
 
+init:
+    $session.character = getCharacterName(get_request($context));
+
 theme: /
     state: Start
         q!: $regex</start>
@@ -21,15 +24,8 @@ theme: /
         
     state: ResetGame
         q!: Давай заново
-        script:
-            resetGame($context);
-            if ($context.request.rawRequest.payload) {
-                $session.chara = $context.request.rawRequest.payload.character.name;
-            } else {
-                $session.chara = "Сбер";
-            }
-            playEmotion("zhdu_otvet");
-        a: Я {{$session.chara}}. Предлагаю вам сделать первый ход
+        script: resetGame($context);
+        a: Я {{$session.character}}. Предлагаю вам сделать первый ход
 
         state: Moving
             intent!: /Move

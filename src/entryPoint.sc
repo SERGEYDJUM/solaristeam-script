@@ -31,32 +31,42 @@ theme: /
             script:
                 playerMove($parseTree._Row, $parseTree._Column, $context);
                 $session.gstate = game_state($context);
+                $session.gstate.game_status = 3;
             if: $session.gstate.game_status == 0
-                a: А вот и мой ход
+                a: {{$global.answers.moved[$session.character]}}
             elseif: $session.gstate.game_status == 1
-                a: Так ходить нельзя, попробуйте ещё раз
+                a: {{$global.answers.invalid_move[$session.character]}}
             elseif: $session.gstate.game_status == 2
-                a: Поздравляю, вы победили!
-                go!: /PollBegin
+                a: {{$global.answers.player_won[$session.character]}}
+                go: /PollBegin
             elseif: $session.gstate.game_status == 3
-                a: Я победил!
-                go!: /PollBegin
+                a: {{$global.answers.player_lost[$session.character]}}
+                go: /PollBegin
             else:
                 a: А что, так можно было?
 
         state: NoMove
             q: noMatch
-            a: Я не понимаю. Повторите свой ход
+            a: {{$global.answers.nomatch_move[$session.character]}}
             script:
                 addSuggestions(["Помощь"], $context)
             
+    state: PollBegin
+        state: Affirmative
+            q: (давай | да)
+            go!: /ResetGame
+        state: Negative
+            q: (нет | не хочу)
+            a: {{$global.answers.goodbye[$session.character]}}
+            script:
+                reply({items: [{command: {type: 'close_app'}}]}, $context.response)
 
     state: Fallback
-        event: noMatch
+        event!: noMatch
         a: Я не понимаю
         script:
             addSuggestions(["Помощь"], $context)
             
     state: Help
         q!: * (помоги | помощь | а как | правила) *
-        a: Помоги сам себе
+        a: {{$global.answers.help[$session.character]}}

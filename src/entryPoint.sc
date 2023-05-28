@@ -24,7 +24,7 @@ theme: /
         script: 
             resetGame($context);
             $session.character = get_character($context);
-        a: Я {{$session.character}}. Предлагаю вам сделать первый ход
+        a: Я {{$answers.board_ready[$session.character]}}
 
         state: Moving
             intent!: /Move

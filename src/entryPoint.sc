@@ -12,14 +12,12 @@ require: js/actions.js
 patterns:
     $AnyText = $nonEmptyGarbage
 
-init:
-    $session.character = getCharacterName(get_request($context));
-
 theme: /
     state: Start
         q!: $regex</start>
         q!: (запусти | открой | вруби) Гомоку
         a: Запускаю Гомоку...
+        script: $context.character = getCharacterName(get_request($context));
         go!: /ResetGame
         
     state: ResetGame

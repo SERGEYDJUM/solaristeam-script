@@ -31,7 +31,7 @@ theme: /
             script:
                 playerMove($parseTree._Row, $parseTree._Column, $context);
                 $session.gstate = game_state($context);
-                $session.gstate.game_status = 3;
+                $session.gstate = {game_status: 3};
             if: $session.gstate.game_status == 0
                 a: {{$global.answers.moved[$session.character]}}
             elseif: $session.gstate.game_status == 1

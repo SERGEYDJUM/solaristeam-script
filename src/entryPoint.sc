@@ -20,7 +20,7 @@ theme: /
         go!: /ResetGame
         
     state: ResetGame
-        q!: * (заново | снова | по новой) *
+        q!: * (заново | снова | по новой | сброс* | перезапус* ) *
         script: 
             resetGame($context);
             $session.character = get_character($context);
@@ -44,7 +44,11 @@ theme: /
                 go!: /PollBegin
             else:
                 a: А что, так можно было?
-
+                
+        state: HelpInternal
+            q: * (помоги | помощь | а как | правила) *
+            a: {{$global.answers.help}}
+        
         state: NoMove
             q: noMatch
             a: {{$global.answers.nomatch_move[$session.character]}}

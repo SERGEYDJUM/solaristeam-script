@@ -1,5 +1,8 @@
 require: slotfilling/slotFilling.sc
     module = sys.zb-common
+    
+require: answers.yaml
+    var = answers
 
 # Подключение javascript обработчиков
 require: js/getters.js
@@ -18,9 +21,10 @@ theme: /
         
     state: ResetGame
         q!: Давай заново
-        a: Поле готово. Предлагаю вам сделать первый ход
         script:
-            resetGame($context)
+            $session.chara = $rawRequest.payload.character.name;
+            resetGame($context);
+        a: Я {{$session.chara}}. Предлагаю вам сделать первый ход
 
         state: Moving
             intent!: /Move

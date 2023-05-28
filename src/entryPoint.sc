@@ -23,7 +23,7 @@ theme: /
         q!: Давай заново
         script: 
             resetGame($context);
-            $session.character = getCharacterName(get_request($context));
+            $session.character = get_character($context);
         a: Я {{$session.character}}. Предлагаю вам сделать первый ход
 
         state: Moving

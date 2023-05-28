@@ -27,8 +27,8 @@ theme: /
             intent: /Move
             script:
                 playerMove($parseTree._Row, $parseTree._Column, $context);
-                var game_state = get_game_state(get_request($context));
-            if: $session.LastGameState == "win"
+                $session.LastGameState = get_game_state(get_request($context));
+            if: $session.LastGameState.playerTurn == false
                 a: Молодец!
             else:
                 a: Плохо!

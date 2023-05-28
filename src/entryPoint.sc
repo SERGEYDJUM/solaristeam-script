@@ -11,28 +11,48 @@ patterns:
 
 theme: /
     state: Start
-        # При запуске приложения с кнопки прилетит сообщение /start.
         q!: $regex</start>
-        # При запуске приложения с голоса прилетит сказанная фраза.
         q!: (запусти | открой | вруби) Гомоку
-        q!: Давай заново
+        a: Запускаю Гомоку...
         go!: /ResetGame
         
     state: ResetGame
+        q!: Давай заново
         a: Поле готово. Предлагаю вам сделать первый ход
         script:
             resetGame($context)
-        state:
-            intent: /Move
+
+        state: Moving
+            intent!: /Move
             script:
                 playerMove($parseTree._Row, $parseTree._Column, $context);
-                $session.LastGameState = game_state($context);
-            if: $session.LastGameState.playerTurn == true
-                a: Хороший ход!
+                $session.gstate = game_state($context);
+            if: $session.gstate.game_status == 0
+                a: А вот и мой ход
+            elseif: $session.gstate.game_status == 1
+                a: Так ходить нельзя, попробуйте ещё раз
+            elseif: $session.gstate.game_status == 2
+                a: Поздравляю, вы победили!
+                go!: /PollBegin
+            elseif: $session.gstate.game_status == 3
+                a: Я победил!
+                go!: /PollBegin
             else:
-                a: Эй, это мой ход!
+                a: А что, так можно было?
+
+        state: NoMove
+            q: noMatch
+            a: Я не понимаю. Повторите свой ход
+            script:
+                addSuggestions(["Помощь"], $context)
+            
 
     state: Fallback
-        event!: noMatch
+        event: noMatch
         a: Я не понимаю
-
+        script:
+            addSuggestions(["Помощь"], $context)
+            
+    state: Help
+        q!: * (помоги | помощь | а как | правила) *
+        a: Помоги сам себе

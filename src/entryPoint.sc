@@ -24,9 +24,11 @@ theme: /
         script:
             if ($context.request.rawRequest.payload) {
                 $session.chara = $context.request.rawRequest.payload.character.name;
+                $context.request.rawRequest.payload.emotion = "zhdu_otvet";
             } else {
                 $session.chara = "Сбер";
             }
+            
             resetGame($context);
         a: Я {{$session.chara}}. Предлагаю вам сделать первый ход
 

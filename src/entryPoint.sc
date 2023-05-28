@@ -22,14 +22,14 @@ theme: /
         a: Поле готово. Предлагаю вам сделать первый ход
         script:
             resetGame($context)
-            
+    
         state:
             intent: /Move
             script:
                 playerMove($parseTree._Row, $parseTree._Column, $context);
-                $session.LastGameState = get_game_state(get_request($context));
-            if: $session.LastGameState.playerTurn == false
-                a: Молодец!
+                $session.LastGameState = game_state($context);
+            if: $session.LastGameState.playerTurn
+                a: !
             else:
                 a: Плохо!
 

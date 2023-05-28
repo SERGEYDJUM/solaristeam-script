@@ -28,7 +28,7 @@ theme: /
             script:
                 playerMove($parseTree._Row, $parseTree._Column, $context);
                 $session.LastGameState = game_state($context);
-            if: $session.LastGameState.playerTurn
+            if: $session.LastGameState.playerTurn == false
                 a: Хороший ход!
             else:
                 a: Эй, это мой ход!

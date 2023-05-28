@@ -22,13 +22,12 @@ theme: /
         a: Поле готово. Предлагаю вам сделать первый ход
         script:
             resetGame($context)
-    
         state:
             intent: /Move
             script:
                 playerMove($parseTree._Row, $parseTree._Column, $context);
                 $session.LastGameState = game_state($context);
-            if: $session.LastGameState.playerTurn == false
+            if: $session.LastGameState.playerTurn == true
                 a: Хороший ход!
             else:
                 a: Эй, это мой ход!

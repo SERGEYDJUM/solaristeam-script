@@ -17,13 +17,13 @@ theme: /
         q!: $regex</start>
         q!: (запусти | открой | вруби) Гомоку
         a: Запускаю Гомоку...
-        script: 
-            $session.character = getCharacterName(get_request($context));
         go!: /ResetGame
         
     state: ResetGame
         q!: Давай заново
-        script: resetGame($context);
+        script: 
+            resetGame($context);
+            $session.character = getCharacterName(get_request($context));
         a: Я {{$session.character}}. Предлагаю вам сделать первый ход
 
         state: Moving

@@ -17,7 +17,8 @@ theme: /
         q!: $regex</start>
         q!: (запусти | открой | вруби) Гомоку
         a: Запускаю Гомоку...
-        script: $context.character = getCharacterName(get_request($context));
+        script: 
+            $session.character = getCharacterName(get_request($context));
         go!: /ResetGame
         
     state: ResetGame

@@ -26,7 +26,7 @@ theme: /
         state:
             intent: /Move
             script:
-                playerMove($parseTree._Row, $parseTree._Column, $context);
+                playerMove(1, 2, $context);
             if: $session.LastGameState == "win"
                 a: Молодец!
             else:

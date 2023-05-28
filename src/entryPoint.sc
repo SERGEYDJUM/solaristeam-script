@@ -29,9 +29,9 @@ theme: /
                 playerMove($parseTree._Row, $parseTree._Column, $context);
                 $session.LastGameState = game_state($context);
             if: $session.LastGameState.playerTurn
-                a: !
+                a: Хороший ход!
             else:
-                a: Плохо!
+                a: Эй, это мой ход!
 
     state: Fallback
         event!: noMatch

@@ -22,12 +22,12 @@ theme: /
     state: ResetGame
         q!: Давай заново
         script:
-            resetGame($context);
-            if ($context.request) {
+            if ($context.request.rawRequest.payload) {
                 $session.chara = $context.request.rawRequest.payload.character.name;
             } else {
                 $session.chara = "Сбер";
             }
+            resetGame($context);
         a: Я {{$session.chara}}. Предлагаю вам сделать первый ход
 
         state: Moving

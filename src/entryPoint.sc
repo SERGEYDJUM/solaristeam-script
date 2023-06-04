@@ -28,11 +28,15 @@ theme: /
 
         state: Moving
             intent: /Move
-            event: registered_move
             script:
                 playerMove($parseTree._Row, $parseTree._Column, $context);
+            go!: /Moved
+                
+        state: Moved
+            event!: registered_move
+            script:
                 $session.gstate = game_state($context);
-                $session.gstate = {game_status: 3};
+                
             if: $session.gstate.game_status == 0
                 a: {{$global.answers.moved[$session.character]}}
             elseif: $session.gstate.game_status == 1
@@ -45,7 +49,7 @@ theme: /
                 go!: /PollBegin
             else:
                 a: А что, так можно было?
-                
+        
         state: HelpInternal
             q: * (помоги | помощь | а как | правила) *
             a: {{$global.answers.help}}

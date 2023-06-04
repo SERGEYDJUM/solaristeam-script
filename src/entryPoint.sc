@@ -64,7 +64,7 @@ theme: /
             a: {{$global.answers.goodbye[$session.character]}}
 
     state: Fallback
-        event!: noMatch
+        event: noMatch
         a: Я не понимаю
         script:
             addSuggestions(["Помощь"], $context)

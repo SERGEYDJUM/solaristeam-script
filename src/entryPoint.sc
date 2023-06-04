@@ -28,6 +28,7 @@ theme: /
 
         state: Moving
             intent: /Move
+            event: registered_move
             script:
                 playerMove($parseTree._Row, $parseTree._Column, $context);
                 $session.gstate = game_state($context);

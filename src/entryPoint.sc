@@ -36,7 +36,7 @@ theme: /
             script:
                 $session.gstate = game_state($context);
                 
-            elseif: $session.gstate.game_status == 1
+            if: $session.gstate.game_status == 1
                 a: {{$global.answers.invalid_move[$session.character]}}
             elseif: $session.gstate.game_status == 2
                 a: {{$global.answers.player_won[$session.character]}}

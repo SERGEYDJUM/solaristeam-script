@@ -30,7 +30,9 @@ theme: /
             intent: /Move
             event: registered_move
             script:
-                playerMove($parseTree._Row, $parseTree._Column, $context);
+                if ($parseTree._Row && $parseTree._Column) {
+                    playerMove($parseTree._Row, $parseTree._Column, $context);
+                }
                 $session.gstate = game_state($context);
                 
             if: $session.gstate.game_status == 1

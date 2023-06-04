@@ -33,7 +33,7 @@ theme: /
             go!: /Moved
                 
         state: Moved
-            event!: registered_move
+            event: registered_move
             script:
                 $session.gstate = game_state($context);
                 

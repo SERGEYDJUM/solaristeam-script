@@ -21,6 +21,7 @@ theme: /
         
     state: ResetGame
         q!: * (заново | снова | по новой | сброс* | перезапус* ) *
+        event!: reset_game
         script: 
             resetGame($context);
             $session.character = get_character($context);

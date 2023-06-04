@@ -29,7 +29,7 @@ theme: /
         state: Moving
             intent: /Move
             script:
-                playerMove($parseTree._Row - 1, $parseTree._Column - 1, $context);
+                playerMove($parseTree._Row, $parseTree._Column, $context);
             go!: /Moved
                 
         state: Moved

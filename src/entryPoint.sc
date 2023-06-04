@@ -15,7 +15,6 @@ patterns:
 theme: /
     state: Start
         q!: $regex</start>
-        q!: (запусти | открой | вруби) Гомоку
         a: Запускаю Гомоку...
         go!: /ResetGame
         

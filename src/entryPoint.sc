@@ -45,8 +45,6 @@ theme: /
             elseif: $session.gstate.game_status == 3
                 a: {{$global.answers.player_lost[$session.character]}}
                 go!: /PollBegin
-            else:
-                a: А что, так можно было?
         
         state: HelpInternal
             q: * (помоги | помощь | а как | правила) *

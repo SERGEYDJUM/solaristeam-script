@@ -49,7 +49,7 @@ theme: /
             a: {{$global.answers.help}}
         
         state: NoMove
-            q: noMatch
+            event: noMatch
             a: {{$global.answers.nomatch_move[$session.character]}}
             script:
                 addSuggestions(["Помощь"], $context)

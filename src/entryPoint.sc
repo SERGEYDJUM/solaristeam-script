@@ -31,7 +31,7 @@ theme: /
             event: registered_move
             script:
                 if ($parseTree._Row && $parseTree._Column) {
-                    playerMove($parseTree._Row, $parseTree._Column, $context);
+                    playerMove(($parseTree._Row - 1), ($parseTree._Column - 1), $context);
                 }
                 $session.gstate = game_state($context);
                 

@@ -4,13 +4,9 @@ require: slotfilling/slotFilling.sc
 require: answers.yaml
     var = answers
 
-# Подключение javascript обработчиков
 require: js/getters.js
 require: js/reply.js
 require: js/actions.js
-
-patterns:
-    $AnyText = $nonEmptyGarbage
 
 theme: /
     state: Start
@@ -46,6 +42,7 @@ theme: /
                 go!: /PollBegin
         
         state: HelpInternal
+            q: $regex</help>
             q: * (помоги | помощь | а как | правила) *
             a: {{$global.answers.help}}
         
@@ -56,7 +53,6 @@ theme: /
                 addSuggestions(["Помощь"], $context)
             
     state: PollBegin
-        a: {{$global.answers.poll_rematch[$session.character]}}
         state: Affirmative
             q: (давай | да)
             go!: /ResetGame
@@ -66,10 +62,11 @@ theme: /
 
     state: Fallback
         event: noMatch
-        a: Я не понимаю
+        a: Я не понимаю.
         script:
             addSuggestions(["Помощь"], $context)
             
     state: Help
+        q: $regex</help>
         q!: * (помоги | помощь | а как | правила) *
         a: {{$global.answers.help}}

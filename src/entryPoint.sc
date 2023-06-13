@@ -31,6 +31,7 @@ theme: /
         state: Moving
             event: registered_move
             script:
+                $jsapi.log("Я Запущен");
                 $session.gstate = game_state($context);
                 $session.ai_move = {x: ($session.gstate.ai_move.y + 1), y: ($session.gstate.ai_move.x + 1)};
             

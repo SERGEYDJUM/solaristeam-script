@@ -20,7 +20,7 @@ theme: /
         event!: reset_game
         script: 
             resetGame($context);
-            $session.character = get_character($context);
+            $session.character = get_character($request);
         a: {{$global.answers.board_ready[$session.character]}}
 
         state: PlayerMoved

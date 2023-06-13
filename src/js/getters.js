@@ -36,12 +36,15 @@ if (request &&
     return null;
 }
 
-function get_character(context) {
+function get_character($request) {
     try {
         // Possible names: Сбер, Афина, Джой
-        return get_request(context).rawRequest.payload.character.name;
+        return $request.rawRequest.payload.character.name;
     } catch (e) {
-        return "Сбер";
+        if ($request.channelType === "chatwidget") {
+            return "Сбер";
+        }
+        throw e.message;
     }
 }
 

@@ -23,13 +23,14 @@ theme: /
             $session.character = get_character($context);
         a: {{$global.answers.board_ready[$session.character]}}
 
-        state: Moving
+        state: PlayerMoved
             intent: /Move
+            script: 
+                playerMove($parseTree._Row, $parseTree._Column, $context);
+
+        state: Moving
             event: registered_move
             script:
-                if ($parseTree._Row && $parseTree._Column) {
-                    playerMove($parseTree._Row, $parseTree._Column, $context);
-                }
                 $session.gstate = game_state($context);
                 $session.ai_move = {x: ($session.gstate.ai_move.y + 1), y: ($session.gstate.ai_move.x + 1)};
             

@@ -38,12 +38,12 @@ theme: /
                 a: {{$session.ai_move.x}}, {{$session.ai_move.y}}. || auto_listening = false
             
             if: $session.gstate.game_status == 1
-                a: {{$global.answers.invalid_move[$session.character]}}
+                a: {{$global.answers.invalid_move[$session.character]}} || auto_listening = true
             elseif: $session.gstate.game_status == 2
-                a: {{$global.answers.player_won[$session.character]}}
+                a: {{$global.answers.player_won[$session.character]}} || auto_listening = true
                 go!: /PollBegin
             elseif: $session.gstate.game_status == 3
-                a: {{$global.answers.player_lost[$session.character]}}
+                a: {{$global.answers.player_lost[$session.character]}} || auto_listening = true
                 go!: /PollBegin
         
         state: HelpInternal

@@ -20,7 +20,7 @@ theme: /
         event!: reset_game
         script: 
             resetGame($context);
-            $session.character = $rawRequest.payload.character.name || "Сбер";
+            $session.character = get_character($context);
         a: {{$global.answers.board_ready[$session.character]}}
 
         state: PlayerMoved

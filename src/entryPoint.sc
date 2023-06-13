@@ -31,7 +31,9 @@ theme: /
                     playerMove($parseTree._Row, $parseTree._Column, $context);
                 }
                 $session.gstate = game_state($context);
-                
+            
+            a: {{$global.answers.ai_moving}}
+            
             if: $session.gstate.game_status == 1
                 a: {{$global.answers.invalid_move[$session.character]}}
             elseif: $session.gstate.game_status == 2

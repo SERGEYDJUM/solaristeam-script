@@ -32,7 +32,10 @@ theme: /
                 }
                 $session.gstate = game_state($context);
             
-            a: Хожу на {{$session.gstate.ai_move.x}} {{$session.gstate.ai_move.y}}
+            random:
+                a: Хожу на {{$session.gstate.ai_move.x}} {{$session.gstate.ai_move.y}}.
+                a: Мой ход: {{$session.gstate.ai_move.x}} {{$session.gstate.ai_move.y}}.
+                a: {{$session.gstate.ai_move.x}} {{$session.gstate.ai_move.y}}.
             
             if: $session.gstate.game_status == 1
                 a: {{$global.answers.invalid_move[$session.character]}}

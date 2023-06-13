@@ -31,7 +31,7 @@ theme: /
                     playerMove($parseTree._Row, $parseTree._Column, $context);
                 }
                 $session.gstate = game_state($context);
-                $session.ai_move = {x: ($session.gstate.ai_move.x) + 1, y: ($session.gstate.ai_move.y + 1)}
+                $session.ai_move = {x: ($session.gstate.ai_move.x + 1), y: ($session.gstate.ai_move.y + 1)}
             
             random:
                 a: Хожу на {{$session.ai_move.x}} {{$session.ai_move.y}}.

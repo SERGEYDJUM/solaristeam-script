@@ -13,7 +13,7 @@
     "business" : false
   },
   "intents" : [ {
-    "id" : 592366,
+    "id" : 600335,
     "path" : "/Move",
     "enabled" : true,
     "businessShared" : false,
@@ -32,12 +32,16 @@
       "name" : "Row",
       "entity" : "duckling.number",
       "required" : true,
-      "prompts" : [ "По вертикали?", "Ряд?" ]
+      "prompts" : [ "По вертикали?", "Ряд?" ],
+      "array" : false,
+      "client" : false
     }, {
       "name" : "Column",
       "entity" : "duckling.number",
       "required" : true,
-      "prompts" : [ "По горизонтали?", "Столбец?" ]
+      "prompts" : [ "По горизонтали?", "Столбец?" ],
+      "array" : false,
+      "client" : false
     } ]
   } ],
   "entities" : [ ],

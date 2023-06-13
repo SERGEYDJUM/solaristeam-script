@@ -31,7 +31,7 @@ theme: /
                     playerMove($parseTree._Row, $parseTree._Column, $context);
                 }
                 $session.gstate = game_state($context);
-                $session.ai_move = {x: ($session.gstate.ai_move.y + 1), y: ($session.gstate.ai_move.x + 1)}
+                $session.ai_move = {x: ($session.gstate.ai_move.y + 1), y: ($session.gstate.ai_move.x + 1)};
             
             random:
                 a: Хожу на {{$session.ai_move.x}} {{$session.ai_move.y}}.
@@ -67,10 +67,16 @@ theme: /
             a: {{$global.answers.goodbye[$session.character]}}
 
     state: Fallback
-        event: noMatch
+        event!: noMatch
         a: Я не понимаю.
         script:
             addSuggestions(["Помощь"], $context)
+            
+    state: StopAssistant
+        event!: STOP_ASSISTANT
+        script:
+            $context.response.replies = [];
+            $context.response.replies.push({type: "raw", body: {"pronounceText": '.'}});
             
     state: Help
         q: $regex</help>

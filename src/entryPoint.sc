@@ -32,7 +32,7 @@ theme: /
                 }
                 $session.gstate = game_state($context);
             
-            a: {{$global.answers.ai_moving}}
+            a: Хожу на {{$session.gstate.ai_move.x + 1}} {{$session.gstate.game_status.ai_move.y + 1}}
             
             if: $session.gstate.game_status == 1
                 a: {{$global.answers.invalid_move[$session.character]}}

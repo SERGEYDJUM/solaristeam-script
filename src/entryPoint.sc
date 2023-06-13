@@ -32,14 +32,14 @@ theme: /
                 }
                 $session.gstate = game_state($context);
                 $session.ai_move = {x: ($session.gstate.ai_move.y + 1), y: ($session.gstate.ai_move.x + 1)};
+                $jsapi.log($session.ai_move.x)
+                $jsapi.log($session.ai_move.y)
             
             if: $session.gstate.game_status != 1
                 a: {{$session.ai_move.x}} {{$session.ai_move.y}}.
             
             if: $session.gstate.game_status == 1
                 a: {{$global.answers.invalid_move[$session.character]}}
-                script:
-                    $jsapi.log("Неправильный ход")
             elseif: $session.gstate.game_status == 2
                 a: {{$global.answers.player_won[$session.character]}}
                 go!: /PollBegin

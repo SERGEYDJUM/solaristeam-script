@@ -35,7 +35,7 @@ theme: /
                 $session.ai_move = {x: ($session.gstate.ai_move.y + 1), y: ($session.gstate.ai_move.x + 1)};
             
             if: $session.gstate.game_status != 1
-                a: {{$session.ai_move.x}} {{$session.ai_move.y}}. || auto_listening: false
+                a: {{$session.ai_move.x}} {{$session.ai_move.y}}.
             
             if: $session.gstate.game_status == 1
                 a: {{$global.answers.invalid_move[$session.character]}}

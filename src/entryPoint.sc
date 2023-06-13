@@ -33,6 +33,9 @@ theme: /
                 $session.gstate = game_state($context);
                 $session.ai_move = {x: ($session.gstate.ai_move.y + 1), y: ($session.gstate.ai_move.x + 1)};
             
+            if: $session.gstate.game_status != 1
+                a: {{$session.ai_move.x}} {{$session.ai_move.y}}.
+            
             if: $session.gstate.game_status == 1
                 a: {{$global.answers.invalid_move[$session.character]}}
             elseif: $session.gstate.game_status == 2
@@ -41,8 +44,6 @@ theme: /
             elseif: $session.gstate.game_status == 3
                 a: {{$global.answers.player_lost[$session.character]}}
                 go!: /PollBegin
-            elseif: $session.gstate.game_status == 0
-                a: {{$session.ai_move.x}} {{$session.ai_move.y}}.
         
         state: HelpInternal
             q: $regex</help>

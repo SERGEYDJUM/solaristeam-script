@@ -27,7 +27,6 @@ theme: /
             intent: /Move
             script: 
                 playerMove($parseTree._Row, $parseTree._Column, $context);
-            go: /ResetGame/Moving
 
         state: Moving
             event: registered_move

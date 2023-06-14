@@ -48,7 +48,7 @@ theme: /
         
         state: HelpInternal
             q!: $regex</help>
-            q!: /help
+            q!:/help
             q!: * (помоги | помощь | а как | правила) *
             a: {{$global.answers.help}}
         
@@ -80,6 +80,6 @@ theme: /
             
     state: Help
         q!: $regex</help>
-        q!: /help
+        q!:/help
         q!: * (помоги | помощь | а как | правила) *
         a: {{$global.answers.help}}

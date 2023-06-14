@@ -72,7 +72,7 @@ theme: /
 
     state: Fallback
         event!: noMatch
-        a: Я не понимаю.
+        a: {{$global.answers.nomatch_global[$session.character]}}
         script:
             addSuggestions(["Помощь"], $context)
             

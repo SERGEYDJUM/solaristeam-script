@@ -25,6 +25,8 @@ theme: /
 
         state: PlayerMoved
             intent: /Move
+            q: $Number::Row [; | ,] $Number::Column
+            q: $Number::Row (строка | ряд) * $Number::Column (столбец | колонка)
             script: 
                 playerMove($parseTree._Row, $parseTree._Column, $context);
 

@@ -60,7 +60,7 @@ theme: /
             event: noMatch
             a: {{$global.answers.nomatch_move[$session.character]}}
             script:
-                addSuggestions(["Помощь"], $context)
+                addSuggestions(["Помощь", "Сброс"], $context)
             
     state: PollBegin
         state: Affirmative
@@ -74,7 +74,7 @@ theme: /
         event!: noMatch
         a: {{$global.answers.nomatch_global[$session.character]}}
         script:
-            addSuggestions(["Помощь"], $context)
+            addSuggestions(["Помощь", "Сброс"], $context)
             
     state: StopAssistant
         event!: STOP_ASSISTANT

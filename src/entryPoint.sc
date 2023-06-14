@@ -28,6 +28,7 @@ theme: /
 
         state: PlayerMoved
             q: $Number::Row ряд $Number::Column столбец
+            q: $Number::Column столбец $Number::Row ряд 
             q: $Number::Row [; | ,] $Number::Column
             intent: /Move
             script: 

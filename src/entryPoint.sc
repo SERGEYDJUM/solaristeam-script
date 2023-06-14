@@ -27,9 +27,9 @@ theme: /
         a: {{$global.answers.board_ready[$session.character]}}
 
         state: PlayerMoved
-            intent: /Move
             q: $Number::Row [; | ,] $Number::Column
             q: $Number::Row (строка | ряд) * $Number::Column (столбец | колонка)
+            intent: /Move
             script: 
                 playerMove($parseTree._Row, $parseTree._Column, $context);
 

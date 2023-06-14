@@ -58,26 +58,26 @@ theme: /
         
         state: NoMove
             event: noMatch
-            a: {{$global.answers.nomatch_move[$session.character]}}
             script:
-                addSuggestions(["Помощь", "Сброс"], $context)
+                addSuggestions(["Помощь", "Сброс"], $context);
+            a: {{$global.answers.nomatch_move[$session.character]}}
             
     state: PollBegin
         state: Affirmative
             q: (давай | да | ага)
             go!: /ResetGame
         state: Negative
-            script:
-                addSuggestions(["Сброс"], $context)
             q: (нет | не хочу | не надо)
+            script:
+                addSuggestions(["Сброс"], $context);
             a: {{$global.answers.goodbye[$session.character]}}
 
     state: Fallback
         event!: noMatch
-        a: {{$global.answers.nomatch_global[$session.character]}}
         script:
-            addSuggestions(["Помощь", "Сброс"], $context)
-            
+            addSuggestions(["Помощь", "Сброс"], $context);
+        a: {{$global.answers.nomatch_global[$session.character]}}
+        
     state: StopAssistant
         event!: STOP_ASSISTANT
         script:

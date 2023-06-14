@@ -24,7 +24,7 @@ theme: /
         a: {{$global.answers.board_ready[$session.character]}}
 
         state: PlayerMoved
-            intent: /Move
+            intent: /Moved
             script: 
                 playerMove($parseTree._Row, $parseTree._Column, $context);
 

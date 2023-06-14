@@ -14,7 +14,7 @@
   },
   "intents" : [ {
     "id" : 601282,
-    "path" : "/Move",
+    "path" : "/Moved",
     "enabled" : true,
     "businessShared" : false,
     "business" : false,
@@ -28,6 +28,18 @@
       "text" : "Ход на 6 3"
     }, {
       "text" : "ход 7 8"
+    }, {
+      "text" : "5 строка 2 столбец"
+    }, {
+      "text" : "3 ряд 7 столбец"
+    }, {
+      "text" : "11 ряд 14 колонка"
+    }, {
+      "text" : "5 ряд; 7 cтолбец"
+    }, {
+      "text" : "7 строка; 4 столбец"
+    }, {
+      "text" : "10 строка, 9 столбец"
     } ],
     "patterns" : [ ],
     "slots" : [ {

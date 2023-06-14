@@ -27,8 +27,8 @@ theme: /
         a: {{$global.answers.board_ready[$session.character]}}
 
         state: PlayerMoved
-            q: $Number::Row (ряд | строка) [; | ,] $Number::Column (столбец | колонка)
-            q: $Number::Column (столбец | колонка) [; | ,] $Number::Row (ряд | строка)
+            q: $Number::Row (ряд | строка | строчка) [; | ,] $Number::Column (столбец | столбик | колонка)
+            q: $Number::Column (столбец | столбик | колонка) [; | ,] $Number::Row (ряд | строка | строчка)
             q: $Number::Row [; | ,] $Number::Column
             intent: /Move
             script: 

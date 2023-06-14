@@ -47,8 +47,9 @@ theme: /
                 go!: /PollBegin
         
         state: HelpInternal
-            q: $regex</help>
-            q: * (помоги | помощь | а как | правила) *
+            q!: $regex</help>
+            q!: /help
+            q!: * (помоги | помощь | а как | правила) *
             a: {{$global.answers.help}}
         
         state: NoMove
@@ -78,6 +79,7 @@ theme: /
             $context.response.replies.push({type: "raw", body: {"pronounceText": '.'}});
             
     state: Help
-        q: $regex</help>
+        q!: $regex</help>
+        q!: /help
         q!: * (помоги | помощь | а как | правила) *
         a: {{$global.answers.help}}

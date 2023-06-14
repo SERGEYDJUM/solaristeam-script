@@ -59,7 +59,7 @@ theme: /
         state: NoMove
             event: noMatch
             script:
-                addSuggestions(["Помощь"], $context);
+                addSuggestions(["Помощь", "Сброс"], $context);
             a: {{$global.answers.nomatch_move[$session.character]}}
             
     state: PollBegin

@@ -67,6 +67,8 @@ theme: /
             q: (давай | да | ага)
             go!: /ResetGame
         state: Negative
+            script:
+                addSuggestions(["Сброс"], $context)
             q: (нет | не хочу | не надо)
             a: {{$global.answers.goodbye[$session.character]}}
 

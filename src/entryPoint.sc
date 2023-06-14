@@ -15,7 +15,7 @@ theme: /
     state: Start
         q!: $regex</start>
         q!: * (запусти | открой | вруби | давай (сыграем | поиграем) в) *
-        a: Запускаю Гомоку...
+        a: Запускаю Гомоку: Пять в ряд.
         go!: /ResetGame
         
     state: ResetGame

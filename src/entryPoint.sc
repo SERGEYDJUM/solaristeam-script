@@ -28,8 +28,8 @@ theme: /
 
         state: PlayerMoved
             q: $Number::Row [; | ,] $Number::Column
-            q: $Number::Row (стро* | ряд*) * $Number::Column (столб* | колон*)
-            q: $Number::Column (столб* | колон*) * $Number::Row (стро* | ряд*)
+            q: $Number::Row (строка | ряд) [; | ,] $Number::Column (столбец | колонка)
+            q: $Number::Column (столбец | колонка) [; | ,] $Number::Row (строка | ряд)
             intent: /Move
             script: 
                 playerMove($parseTree._Row, $parseTree._Column, $context);

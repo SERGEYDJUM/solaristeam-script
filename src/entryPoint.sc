@@ -64,10 +64,10 @@ theme: /
             
     state: PollBegin
         state: Affirmative
-            q: (давай | да)
+            q: (давай | да | ага)
             go!: /ResetGame
         state: Negative
-            q: (нет | не хочу)
+            q: (нет | не хочу | не надо)
             a: {{$global.answers.goodbye[$session.character]}}
 
     state: Fallback

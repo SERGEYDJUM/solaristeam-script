@@ -8,6 +8,9 @@ require: js/getters.js
 require: js/reply.js
 require: js/actions.js
 
+patterns:
+    $Number = @duckling.number
+
 theme: /
     state: Start
         q!: $regex</start>

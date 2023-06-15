@@ -44,7 +44,7 @@ theme: /
                 a: {{$session.ai_move.x}}, {{$session.ai_move.y}}. || auto_listening = false
             
             if: $session.gstate.game_status == 1
-                a: {{$global.answers.invalid_move[$session.character]}} || auto_listening = true
+                a: {{$global.answers.invalid_move[$session.character]}}
             elseif: $session.gstate.game_status == 2
                 a: {{$global.answers.player_won[$session.character]}} || auto_listening = true
                 go!: /PollBegin

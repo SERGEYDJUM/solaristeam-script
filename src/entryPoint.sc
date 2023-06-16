@@ -40,7 +40,7 @@ theme: /
                 $session.gstate = game_state($context);
                 $session.ai_move = {x: ($session.gstate.ai_move.y + 1), y: ($session.gstate.ai_move.x + 1)};
             
-            if: $session.gstate.game_status != 1
+            if: $session.ai_move.x != 0
                 a: {{$session.ai_move.x}}, {{$session.ai_move.y}}. || auto_listening = false
             
             if: $session.gstate.game_status == 1

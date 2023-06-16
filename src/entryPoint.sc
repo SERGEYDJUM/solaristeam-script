@@ -51,6 +51,9 @@ theme: /
             elseif: $session.gstate.game_status == 3
                 a: {{$global.answers.player_lost[$session.character]}} || auto_listening = true
                 go!: /PollBegin
+            elseif: $session.gstate.game_status == 4
+                a: {{$global.answers.draw[$session.character]}} || auto_listening = true
+                go!: /PollBegin
         
         state: HelpInternal
             q: $regex</help>

@@ -22,6 +22,7 @@ theme: /
         q!: * (заново | снова | по новой | сброс* | перезапус* ) *
         event!: reset_game
         script: 
+            $context.response.replies = [];
             resetGame($context);
             $session.character = get_character($request);
         a: {{$global.answers.board_ready[$session.character]}}

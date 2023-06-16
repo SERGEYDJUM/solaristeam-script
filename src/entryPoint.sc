@@ -21,9 +21,7 @@ theme: /
     state: ResetGame
         q!: * (заново | снова | по новой | сброс* | перезапус* ) *
         event!: reset_game
-        script: 
-            $context.response.replies = [];
-            $context.response.replies.push({type: "raw", body: {"pronounceText": '.'}});
+        script:
             resetGame($context);
             $session.character = get_character($request);
         a: {{$global.answers.board_ready[$session.character]}}

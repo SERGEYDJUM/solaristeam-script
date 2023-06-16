@@ -23,6 +23,7 @@ theme: /
         event!: reset_game
         script: 
             $context.response.replies = [];
+            $context.response.replies.push({type: "raw", body: {"pronounceText": '.'}});
             resetGame($context);
             $session.character = get_character($request);
         a: {{$global.answers.board_ready[$session.character]}}
